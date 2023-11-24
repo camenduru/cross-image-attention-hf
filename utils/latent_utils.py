@@ -63,11 +63,6 @@ def invert_images(sd_model: AppearanceTransferModel, app_image: Image.Image, str
                                        prompt_src=cfg.prompt,
                                        num_diffusion_steps=cfg.num_timesteps,
                                        cfg_scale_src=3.5)
-    # Save the inverted latents and noises
-    torch.save(latents_app, cfg.latents_path / f"{cfg.app_image_path.stem}.pt")
-    torch.save(latents_struct, cfg.latents_path / f"{cfg.struct_image_path.stem}.pt")
-    torch.save(zs_app, cfg.latents_path / f"{cfg.app_image_path.stem}_ddpm_noise.pt")
-    torch.save(zs_struct, cfg.latents_path / f"{cfg.struct_image_path.stem}_ddpm_noise.pt")
     return latents_app, latents_struct, zs_app, zs_struct
 
 
