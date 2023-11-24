@@ -10,9 +10,6 @@ from config import RunConfig
 def load_images(cfg: RunConfig, save_path: Optional[pathlib.Path] = None) -> Tuple[Image.Image, Image.Image]:
     image_style = load_size(cfg.app_image_path)
     image_struct = load_size(cfg.struct_image_path)
-    if save_path is not None:
-        Image.fromarray(image_style).save(save_path / f"in_style.png")
-        Image.fromarray(image_struct).save(save_path / f"in_struct.png")
     return image_style, image_struct
 
 
