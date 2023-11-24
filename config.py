@@ -47,7 +47,6 @@ class RunConfig:
 
     def __post_init__(self):
         self.output_path = self.output_path / self.domain_name
-        self.output_path.mkdir(parents=True, exist_ok=True)
 
         # Handle the domain name, prompt, and object nouns used for masking, etc.
         if self.use_masked_adain and self.domain_name is None:
@@ -61,6 +60,5 @@ class RunConfig:
 
         # Define the paths to store the inverted latents to
         self.latents_path = Path(self.output_path) / "latents"
-        self.latents_path.mkdir(parents=True, exist_ok=True)
         self.app_latent_save_path = self.latents_path / f"{self.app_image_path.stem}.pt"
         self.struct_latent_save_path = self.latents_path / f"{self.struct_image_path.stem}.pt"
