@@ -93,4 +93,4 @@ with gr.Blocks(css='style.css') as demo:
                     fn=main_pipeline,
                     cache_examples=True)
 
-demo.launch(share=False, server_name="127.0.0.1", server_port=8888)
+demo.queue(max_size=50).launch(share=False)
