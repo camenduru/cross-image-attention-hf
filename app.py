@@ -4,6 +4,7 @@ from typing import Optional
 
 import gradio as gr
 from PIL import Image
+from diffusers.training_utils import set_seed
 
 from appearance_transfer_model import AppearanceTransferModel
 from run import run_appearance_transfer
@@ -48,6 +49,7 @@ def main_pipeline(app_image_path: str,
         load_latents=False
     )
     print(config)
+    set_seed(config.seed)
     model = AppearanceTransferModel(config=config, pipe=pipe)
     latents_app, latents_struct, noise_app, noise_struct = load_latents_or_invert_images(model=model, cfg=config)
     model.set_latents(latents_app, latents_struct)
