@@ -94,6 +94,6 @@ with gr.Blocks(css='style.css') as demo:
                     inputs=[app_image_path, struct_image_path, domain_name, random_seed, prompt],
                     outputs=[result],
                     fn=main_pipeline,
-                    cache_examples=True)
+                    cache_examples=False)
 
 demo.queue(max_size=50).launch(share=True, debug=True)
