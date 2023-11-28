@@ -63,9 +63,6 @@ def main_pipeline(app_image_path: str,
 with gr.Blocks(css='style.css') as demo:
     gr.Markdown(DESCRIPTION)
 
-    gr.HTML('''<a href="https://huggingface.co/spaces/yuvalalaluf/cross-image-attention?duplicate=true"><img src="https://bit.ly/3gLdBN6" 
-            alt="Duplicate Space"></a>''')
-
     with gr.Row():
         with gr.Column():
             app_image_path = gr.Image(label="Upload appearance image", type="filepath")
